@@ -11,7 +11,8 @@ function update() {
 }
 
 chrome.storage.local.get(['speed'], function(result) {
-	console.log('Speed currently is ' + result.speed);
+	currentSpeed = result.speed;
+	update();
 });
 
 // Listen for storage changes
@@ -21,5 +22,4 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 	update();
 });
 
-update();
 setInterval(update, 1000);

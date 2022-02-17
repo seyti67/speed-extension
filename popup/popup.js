@@ -6,5 +6,5 @@ chrome.storage.local.get(['speed'], function(result) {
 
 speedInput.addEventListener('input', function() {
 	const speed = parseFloat(speedInput.value);
-	chrome.storage.local.set({speed});
+	chrome.storage.local.set({speed}, () => {});
 });
