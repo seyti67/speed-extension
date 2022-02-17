@@ -1,13 +1,14 @@
 {
-	"name": "Highlight some phrases",
-	"description": "Hightlight some pre defined text after page loads",
+	"name": "Speed extension",
+	"description": "Manage the speed of the videos you watch.",
 	"version": "0.1",
-	"permissions": [
-		"tabs","<all_urls>"
-	],
 	"browser_action": {
-		"default_icon": "icon.png"
+		"default_icon": "icon.png",
+		"default_popup": "popup/popup.html"
 	},
+	"permissions": [
+		"tabs", "<all_urls>", "storage"
+	],
 	"content_scripts": [
 		{
 			"matches": [
@@ -15,7 +16,8 @@
 				"https://*/*"
 			],
 			"js": ["content.js"],
-			"run_at": "document_end"
+			"run_at": "document_end",
+			"all_frames": true
 		}
 	], 
 	"manifest_version": 2
